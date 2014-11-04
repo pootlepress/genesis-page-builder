@@ -419,14 +419,14 @@ function siteorigin_panels_save_post( $post_id, $post ) {
 	if( function_exists('wp_slash') ) $panels_data = wp_slash($panels_data);
 	update_post_meta( $post_id, 'panels_data', $panels_data );
 
-//    if (isset($_POST['page-settings'])) {
-//        $pageSettingsJson = $_POST['page-settings'];
-//        update_post_meta($post_id, 'pootlepage-page-settings', $pageSettingsJson);
-//    }
-//    if (isset($_POST['hide-elements'])) {
-//        $hideElementsJson = $_POST['hide-elements'];
-//        update_post_meta($post_id, 'pootlepage-hide-elements', $hideElementsJson);
-//    }
+    if (isset($_POST['page-settings'])) {
+        $pageSettingsJson = $_POST['page-settings'];
+        update_post_meta($post_id, 'pootlepage-page-settings', $pageSettingsJson);
+    }
+    if (isset($_POST['hide-elements'])) {
+        $hideElementsJson = $_POST['hide-elements'];
+        update_post_meta($post_id, 'pootlepage-hide-elements', $hideElementsJson);
+    }
 }
 add_action( 'save_post', 'siteorigin_panels_save_post', 10, 2 );
 
@@ -1925,20 +1925,20 @@ function pp_pb_widget_area_init() {
         add_filter( 'mce_buttons', array( $woo_shortcode_generator, 'filter_mce_buttons' ) );
         add_filter( 'mce_external_plugins', array( $woo_shortcode_generator, 'filter_mce_external_plugins' ) );
 
-        // Register the colourpicker JavaScript.
-        wp_register_script( 'woo-colourpicker', esc_url( $woo_shortcode_generator->framework_url() . 'js/colorpicker.js' ), array( 'jquery' ), '3.6', true ); // Loaded into the footer.
-        wp_enqueue_script( 'woo-colourpicker' );
-
-        // Register the colourpicker CSS.
-        wp_register_style( 'woo-colourpicker', esc_url( $woo_shortcode_generator->framework_url() . 'css/colorpicker.css' ) );
-        wp_enqueue_style( 'woo-colourpicker' );
-
-        wp_register_style( 'woo-shortcode-icon', esc_url( $woo_shortcode_generator->framework_url() . 'css/shortcode-icon.css' ) );
-        wp_enqueue_style( 'woo-shortcode-icon' );
-
-        // Register the custom CSS styles.
-        wp_register_style( 'woo-shortcode-generator', esc_url( $woo_shortcode_generator->framework_url() . 'css/shortcode-generator.css' ) );
-        wp_enqueue_style( 'woo-shortcode-generator' );
+        // Register the colourpicker JavaScript. For Canvas
+//        wp_register_script( 'woo-colourpicker', esc_url( $woo_shortcode_generator->framework_url() . 'js/colorpicker.js' ), array( 'jquery' ), '3.6', true ); // Loaded into the footer.
+//        wp_enqueue_script( 'woo-colourpicker' );
+//
+//        // Register the colourpicker CSS.
+//        wp_register_style( 'woo-colourpicker', esc_url( $woo_shortcode_generator->framework_url() . 'css/colorpicker.css' ) );
+//        wp_enqueue_style( 'woo-colourpicker' );
+//
+//        wp_register_style( 'woo-shortcode-icon', esc_url( $woo_shortcode_generator->framework_url() . 'css/shortcode-icon.css' ) );
+//        wp_enqueue_style( 'woo-shortcode-icon' );
+//
+//        // Register the custom CSS styles.
+//        wp_register_style( 'woo-shortcode-generator', esc_url( $woo_shortcode_generator->framework_url() . 'css/shortcode-generator.css' ) );
+//        wp_enqueue_style( 'woo-shortcode-generator' );
 
 //        add_action('admin_head', 'pp_pb_widget_area_head');
     }

@@ -312,37 +312,37 @@ class SiteOrigin_Panels_Widgets_PostLoop extends WP_Widget{
 			echo $args['before_title'] . $instance['title'] . $args['after_title'];
 		}
 
-        $displayPostMore = isset($instance['continue_reading_enable']) && $instance['continue_reading_enable'] == true;
-        $isInitialPostMore = has_action( 'woo_post_inside_after', 'woo_post_more' );
-
-        // hack to temporary add/remove post more
-        if ($displayPostMore) {
-            if (!$isInitialPostMore) {
-                add_action( 'woo_post_inside_after', 'woo_post_more' );
-            }
-        } else {
-            if ($isInitialPostMore) {
-                remove_action( 'woo_post_inside_after', 'woo_post_more' );
-            }
-        }
-
-        $thumbnailEnable = isset($instance['thumbnail_enable']) && $instance['thumbnail_enable'] == true;
-        $initialThumbnailEnable = get_option('pp_pb_post_loop_thumbnail_enable', '1') == true;
-        if ($thumbnailEnable != $initialThumbnailEnable) {
-            update_option('pp_pb_post_loop_thumbnail_enable', $thumbnailEnable ? '1' : '0');
-        }
-
-        $this->instance = $instance;
-        // add filter to further set other parameters
-        add_filter('woo_get_dynamic_values', array($this, 'temporary_set_woo_settings'));
-
-        add_filter('excerpt_length', array($this, 'filter_excerpt_length'));
-//        apply_filters( 'excerpt_length', 55 );
-
-        add_filter('the_title', array($this, 'filter_title'), 10, 2);
-
-        // hook for enable/disable pagination
-        add_action ('woo_loop_before', array($this, 'loop_before'));
+//        $displayPostMore = isset($instance['continue_reading_enable']) && $instance['continue_reading_enable'] == true;
+//        $isInitialPostMore = has_action( 'woo_post_inside_after', 'woo_post_more' );
+//
+//        // hack to temporary add/remove post more
+//        if ($displayPostMore) {
+//            if (!$isInitialPostMore) {
+//                add_action( 'woo_post_inside_after', 'woo_post_more' );
+//            }
+//        } else {
+//            if ($isInitialPostMore) {
+//                remove_action( 'woo_post_inside_after', 'woo_post_more' );
+//            }
+//        }
+//
+//        $thumbnailEnable = isset($instance['thumbnail_enable']) && $instance['thumbnail_enable'] == true;
+//        $initialThumbnailEnable = get_option('pp_pb_post_loop_thumbnail_enable', '1') == true;
+//        if ($thumbnailEnable != $initialThumbnailEnable) {
+//            update_option('pp_pb_post_loop_thumbnail_enable', $thumbnailEnable ? '1' : '0');
+//        }
+//
+//        $this->instance = $instance;
+//        // add filter to further set other parameters
+//        add_filter('woo_get_dynamic_values', array($this, 'temporary_set_woo_settings'));
+//
+//        add_filter('excerpt_length', array($this, 'filter_excerpt_length'));
+////        apply_filters( 'excerpt_length', 55 );
+//
+//        add_filter('the_title', array($this, 'filter_title'), 10, 2);
+//
+//        // hook for enable/disable pagination
+//        add_action ('woo_loop_before', array($this, 'loop_before'));
 
         // hook for column count
 //        add_action('get_header', array($this, 'option_css'));
@@ -350,37 +350,29 @@ class SiteOrigin_Panels_Widgets_PostLoop extends WP_Widget{
         if (function_exists('genesis_custom_loop')) {
             genesis_custom_loop($query_args);
         }
-//		if(strpos('/'.$instance['template'], '/content') !== false) {
-//			while(have_posts()) {
-//				the_post();
-//				locate_template($instance['template'], true, false);
-//			}
-//		}
-//		else {
-//			locate_template($instance['template'], true, false);
-//		}
 
-        remove_action ('woo_loop_before', array($this, 'loop_before'));
 
-        remove_filter('the_title', array($this, 'filter_title'), 10, 2);
+//        remove_action ('woo_loop_before', array($this, 'loop_before'));
+//
+//        remove_filter('the_title', array($this, 'filter_title'), 10, 2);
+//
+//        remove_filter('excerpt_length', array($this, 'filter_excerpt_length'));
+//
+//        remove_filter('woo_get_dynamic_values', array($this, 'temporary_set_woo_settings'));
 
-        remove_filter('excerpt_length', array($this, 'filter_excerpt_length'));
-
-        remove_filter('woo_get_dynamic_values', array($this, 'temporary_set_woo_settings'));
-
-        if ($thumbnailEnable != $initialThumbnailEnable) {
-            update_option('pp_pb_post_loop_thumbnail_enable', $initialThumbnailEnable ? '1' : '0');
-        }
-
-        if ($displayPostMore) {
-            if (!$isInitialPostMore) {
-                remove_action( 'woo_post_inside_after', 'woo_post_more' );
-            }
-        } else {
-            if ($isInitialPostMore) {
-                add_action( 'woo_post_inside_after', 'woo_post_more' );
-            }
-        }
+//        if ($thumbnailEnable != $initialThumbnailEnable) {
+//            update_option('pp_pb_post_loop_thumbnail_enable', $initialThumbnailEnable ? '1' : '0');
+//        }
+//
+//        if ($displayPostMore) {
+//            if (!$isInitialPostMore) {
+//                remove_action( 'woo_post_inside_after', 'woo_post_more' );
+//            }
+//        } else {
+//            if ($isInitialPostMore) {
+//                add_action( 'woo_post_inside_after', 'woo_post_more' );
+//            }
+//        }
 
 		echo $args['after_widget'];
 

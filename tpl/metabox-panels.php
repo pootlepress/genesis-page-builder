@@ -19,8 +19,8 @@ $layouts = apply_filters('siteorigin_panels_prebuilt_layouts', array());
 			<button class="prebuilt-set add-button button"><?php _e('Add Layout', 'siteorigin-panels') ?></button>
 		<?php endif; ?>
 
-<!--        <button class="page-settings button">Page Settings</button>-->
-<!--        <button class="hide-elements button">Hide Elements</button>-->
+        <button class="page-settings button">Page Settings</button>
+        <button class="hide-elements button">Hide Elements</button>
 		<div class="clear"></div>
 	</div>
 	
