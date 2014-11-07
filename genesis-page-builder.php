@@ -351,7 +351,9 @@ add_action( 'admin_print_styles-appearance_page_so_panels_home_page', 'siteorigi
 
 function pootlepage_option_page_styles() {
     $screen = get_current_screen();
-    if ($screen->id == 'settings_page_page_builder') {
+    // Canvas Page Builder setting page has screen id of 'settings_page_page_builder'
+    // Genesis Page Builder has screen id of 'genesis_page_page_builder'
+    if ($screen->id == 'genesis_page_page_builder') {
         wp_enqueue_style( 'pootlepage-option-admin', plugin_dir_url(__FILE__) . 'css/option-admin.css', array( ), POOTLEPAGE_VERSION );
     }
 }
@@ -360,14 +362,9 @@ add_action('admin_print_styles', 'pootlepage_option_page_styles');
 
 function pootlepage_option_page_scripts() {
     $screen = get_current_screen();
-//    var_dump($screen);
-    if ($screen->id == 'settings_page_page_builder') {
-
-//    global $pagenow;
-//    if ($pagenow == 'admin.php' &&
-//        isset($_GET['page']) && $_GET['page'] == 'folio-settings' &&
-//        isset($_GET['tab']) && $_GET['tab'] == 'widgets'
-//    ) {
+    // Canvas Page Builder setting page has screen id of 'settings_page_page_builder'
+    // Genesis Page Builder has screen id of 'genesis_page_page_builder'
+    if ($screen->id == 'genesis_page_page_builder') {
         wp_enqueue_script( 'jquery-ui-sortable' );
         wp_enqueue_script( 'pootlepage-option-admin', plugin_dir_url(__FILE__) . 'js/option-admin.js', array('jquery'), POOTLEPAGE_VERSION );
     }
@@ -998,7 +995,8 @@ function pootlepage_page_css() {
     $backgroundImageRepeat = isset($pageSettings['background_image_repeat']) ? $pageSettings['background_image_repeat'] : false;
     $backgroundImagePosition = isset($pageSettings['background_image_position']) ? $pageSettings['background_image_position'] : false;
     $backgroundImageAttachment = isset($pageSettings['background_image_attachment']) ? $pageSettings['background_image_attachment'] : false;
-    $removeSideBar = isset($pageSettings['remove_sidebar']) ? $pageSettings['remove_sidebar'] : false;
+    // remove this option from Genesis PB
+    //$removeSideBar = isset($pageSettings['remove_sidebar']) ? $pageSettings['remove_sidebar'] : false;
     $fullWidth = isset($pageSettings['full_width']) ? $pageSettings['full_width'] : false;
     $keepContentAtSiteWidth = isset($pageSettings['keep_content_at_site_width']) ? $pageSettings['keep_content_at_site_width'] : false;
 
@@ -1037,18 +1035,19 @@ function pootlepage_page_css() {
     }
     $css .= "}\n";
 
-    if ($removeSideBar) {
-        if ($theme == 'twentythirteen') {
-            $css .= "#tertiary { display: none !important; }\n";
-        } else if ($parentTheme == 'genesis') {
-            $css .= ".site-inner .sidebar { display: none !important; }\n";
-        } else if ($parentTheme == 'make') {
-            $css .= "#sidebar-left, #sidebar-right { display: none !important; }\n";
-            $css .= "#site-main { width: 100% !important; margin-left: 0 !important; }\n";
-        } else {
-            $css .= "#sidebar { display: none !important ; }\n";
-        }
-    }
+    // remove this option from Genesis Page Builder;
+//    if ($removeSideBar) {
+//        if ($theme == 'twentythirteen') {
+//            $css .= "#tertiary { display: none !important; }\n";
+//        } else if ($parentTheme == 'genesis') {
+//            $css .= ".site-inner .sidebar { display: none !important; }\n";
+//        } else if ($parentTheme == 'make') {
+//            $css .= "#sidebar-left, #sidebar-right { display: none !important; }\n";
+//            $css .= "#site-main { width: 100% !important; margin-left: 0 !important; }\n";
+//        } else {
+//            $css .= "#sidebar { display: none !important ; }\n";
+//        }
+//    }
 
     if ($theme == 'twentyfourteen') {
         // theme specific fix

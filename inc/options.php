@@ -54,9 +54,10 @@ function siteorigin_panels_setting($key = ''){
  * Add the options page
  */
 function siteorigin_panels_options_admin_menu() {
-	add_options_page( __('Page Builder for Genesis', 'siteorigin-panels'), __('Page Builder', 'siteorigin-panels'), 'manage_options', 'page_builder', 'siteorigin_panels_options_page' );
+	// add to Genesis menu as last menu item
+    add_submenu_page('genesis', 'Page Builder for Genesis', 'Page Builder', 'manage_options', 'page_builder', 'siteorigin_panels_options_page');
 }
-add_action( 'admin_menu', 'siteorigin_panels_options_admin_menu' );
+add_action( 'admin_menu', 'siteorigin_panels_options_admin_menu', 100);
 
 /**
  * Display the admin page.

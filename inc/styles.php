@@ -75,10 +75,11 @@ function pootlepage_page_settings_fields() {
         )
     );
 
-    $fields['remove_sidebar'] = array(
-        'name' => __('Remove Sidebar', 'pootlepage'),
-        'type' => 'checkbox',
-    );
+    // remove this option from Genesis PB
+//    $fields['remove_sidebar'] = array(
+//        'name' => __('Remove Sidebar', 'pootlepage'),
+//        'type' => 'checkbox',
+//    );
 
     $fields['full_width'] = array(
         'name' => __('Make page go full width', 'pootlepage'),
