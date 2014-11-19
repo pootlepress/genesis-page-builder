@@ -52,6 +52,9 @@ if ( ! class_exists( 'PootlePage_Padding_Control' ) ) :
 
             $current_amount = isset( $value ) ? $value : $default_amount;
 
+            $unit = $this->value('unit');
+            $unit = isset($unit) ? $unit : $this->default['unit'];
+
             // Get control view
             ?>
             <label><?php _e( 'Top/Bottom', 'scratch' ); ?>
@@ -61,8 +64,8 @@ if ( ! class_exists( 'PootlePage_Padding_Control' ) ) :
                        default="<?php echo $default_amount ?>"
                     <?php $this->link('top_bottom_width') ?>
                     />
-                px
 
+                <?php esc_html_e($unit) ?>
             </label>
 
         <?php
@@ -79,6 +82,9 @@ if ( ! class_exists( 'PootlePage_Padding_Control' ) ) :
 
             $current_amount = isset( $value ) ? $value : $default_amount;
 
+            $unit = $this->value('unit');
+            $unit = isset($unit) ? $unit : $this->default['unit'];
+
             // Get control view
             ?>
             <label><?php _e( 'Left/Right', 'scratch' ); ?>
@@ -88,7 +94,8 @@ if ( ! class_exists( 'PootlePage_Padding_Control' ) ) :
                        default="<?php echo $default_amount ?>"
                     <?php $this->link('left_right_width') ?>
                     />
-                px
+
+                <?php esc_html_e($unit) ?>
 
             </label>
 

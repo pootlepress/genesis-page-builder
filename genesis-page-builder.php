@@ -298,10 +298,21 @@ function siteorigin_panels_admin_enqueue_scripts($prefix) {
 
 		// Set up the row styles
 		wp_localize_script( 'so-panels-admin', 'panelsStyleFields', siteorigin_panels_style_get_fields() );
-		if( siteorigin_panels_style_is_using_color() ) {
-			wp_enqueue_script( 'wp-color-picker');
-			wp_enqueue_style( 'wp-color-picker' );
-		}
+
+        // use new color picker that supports RGBA
+        wp_dequeue_script("iris");
+
+        wp_enqueue_script("pp-pb-iris", plugin_dir_url(__FILE__) . '/js/iris.js', array( 'jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch' ));
+        wp_enqueue_script( 'pp-pb-color-picker', plugin_dir_url(__FILE__) . '/js/color-picker-custom.js', array('pp-pb-iris') );
+
+        wp_localize_script( 'pp-pb-color-picker', 'wpColorPickerL10n', array(
+            'clear' => __( 'Clear' ),
+            'defaultString' => __( 'Default' ),
+            'pick' => __( 'Select Color' ),
+            'current' => __( 'Current Color' ),
+        ) );
+
+        wp_enqueue_style( 'wp-color-picker' );
 
 		// Render all the widget forms. A lot of widgets use this as a chance to enqueue their scripts
 		$original_post = isset($GLOBALS['post']) ? $GLOBALS['post'] : null; // Make sure widgets don't change the global post.
@@ -1018,6 +1029,7 @@ function pootlepage_page_css() {
 
     if ($backgroundColor) {
         $css .= "\t" . 'background-color: ' . $backgroundColor . " !important;\n";
+        $css .= "\t" . "background-image: none !important;\n";
     }
     if ($backgroundImage) {
         $css .= "\t" . 'background-image: url("' . $backgroundImage . "\") !important;\n";
@@ -1092,7 +1104,9 @@ function pootlepage_page_css() {
             $css .= "main.content > article { padding-left: 0; padding-right: 0; }\n";
 
             if ($keepContentAtSiteWidth) {
-                $css .= ".panel-grid-cell-container { margin-left: auto; margin-right: auto; width: 960px; }\n";
+                $css .= ".panel-grid-cell-container { margin-left: auto; margin-right: auto; max-width: 1200px; }\n";
+                $css .= "@media only screen and (max-width: 1200px) { .panel-grid-cell-container { max-width: 960px; } }\n";
+                $css .= "@media only screen and (max-width: 960px) { .panel-grid-cell-container { max-width: 800px; } }\n";
             }
         } else if ($parentTheme == 'make') {
 

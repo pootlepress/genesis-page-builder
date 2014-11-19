@@ -266,12 +266,12 @@ function pp_pb_widget_styles_dialog_form(){
                 <?php
                 break;
             case 'border' :
-                ?><input dialog-field="<?php echo $key ?>-width" class="widget-<?php echo $key ?>-width" type="number" min="0" max="100" step="1" value="0" /> px
+                ?><input dialog-field="<?php echo $key ?>-width" class="widget-<?php echo $key ?>-width" type="number" min="0" max="100" step="1" value="" /> px
                   <input dialog-field="<?php echo $key ?>-color" class="widget-<?php echo $key ?>-color" type="text" data-style-field-type="color" />
                 <?php
                 break;
             case 'number' :
-                ?><input dialog-field="<?php echo $key ?>" class="widget-<?php echo $key ?>" type="number" min="<?php esc_attr_e($field['min']) ?>" max="<?php esc_attr_e($field['max']) ?>" step="<?php esc_attr_e($field['step']) ?>" value="0" /> <?php esc_html_e($field['unit']) ?>
+                ?><input dialog-field="<?php echo $key ?>" class="widget-<?php echo $key ?>" type="number" min="<?php esc_attr_e($field['min']) ?>" max="<?php esc_attr_e($field['max']) ?>" step="<?php esc_attr_e($field['step']) ?>" value="" /> <?php esc_html_e($field['unit']) ?>
                 <?php
                 break;
             default :

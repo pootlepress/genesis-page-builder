@@ -145,9 +145,10 @@ if ( ! class_exists( 'PootlePage_Border_Control' ) ) :
 
                     <div class="separator"></div>
 
-                    <?php $this->get_border_style_control(); ?>
+                    <!-- Dont need border style -->
+<!--                    --><?php //$this->get_border_style_control(); ?>
 
-                    <div class="separator"></div>
+<!--                    <div class="separator"></div>-->
 
                     <?php $this->get_border_color_control(); ?>
 

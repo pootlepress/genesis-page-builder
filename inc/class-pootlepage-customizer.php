@@ -59,10 +59,12 @@ class PootlePage_Customizer {
                 'settings' => array(
                     'top_bottom_width' => 'pp_widget_padding_top_bottom',
                     'left_right_width' => 'pp_widget_padding_left_right',
+                    'unit' => 'pp_widget_padding_unit'
                 ),
                 'defaults' => array(
                     'top_bottom_width' => 0,
                     'left_right_width' => 0,
+                    'unit' => '%'
                 ),
                 'priority' => 12
             ),
@@ -384,6 +386,7 @@ class PootlePage_Customizer {
             $widgetBorder = array('width' => 0, 'style' => 'solid', 'color' => '#dbdbdb');
             $widgetPaddingTopBottom = 40;
             $widgetPaddingLeftRight = 40;
+            $widgetPaddingUnit = '%';
 
             $widgetTitleFont = array('size' => '16','unit' => 'px', 'face' => 'Lato, sans-serif','style' => 'bold','color' => '#333333');
             $widgetTitleFontFamily = $widgetTitleFont['face'];
@@ -414,7 +417,8 @@ class PootlePage_Customizer {
             );
             $this->options['pp_widget_padding']['defaults'] = array(
                 'top_bottom_width' => $widgetPaddingTopBottom,
-                'left_right_width' => $widgetPaddingLeftRight
+                'left_right_width' => $widgetPaddingLeftRight,
+                'unit' => $widgetPaddingUnit
             );
             $this->options['pp_widget_title']['defaults'] = array(
                 'font_id' => $widgetTitleFontFamily,
@@ -667,7 +671,8 @@ class PootlePage_Customizer {
         }
 
         $widget_border_width = get_option('pp_widget_border_width', 0);
-        $widget_border_style = get_option('pp_widget_border_style', 'solid');
+        // don't need border style
+        $widget_border_style = 'solid'; //get_option('pp_widget_border_style', 'solid');
         $widget_border_color = get_option('pp_widget_border_color', '#dbdbdb');
 
         if ($widget_border_width > 0) {
@@ -676,17 +681,18 @@ class PootlePage_Customizer {
 
         $widget_padding_left_right = get_option('pp_widget_padding_left_right', 0);
         $widget_padding_top_bottom = get_option('pp_widget_padding_top_bottom', 0);
+        $widget_padding_unit = get_option('pp_widget_padding_unit', 'px');
 
         if (!$widget_padding_left_right) {
             $widget_css .= 'padding-left: 0; padding-right: 0;';
         } else {
-            $widget_css .= 'padding-left: ' . $widget_padding_left_right . 'px ; padding-right: ' . $widget_padding_left_right . 'px;';
+            $widget_css .= 'padding-left: ' . $widget_padding_left_right . $widget_padding_unit . ' ; padding-right: ' . $widget_padding_left_right . $widget_padding_unit . ';';
         }
 
         if (!$widget_padding_top_bottom) {
             $widget_css .= 'padding-top: 0; padding-bottom: 0;';
         } else {
-            $widget_css .= 'padding-top: ' . $widget_padding_top_bottom . 'px ; padding-bottom: ' . $widget_padding_top_bottom . 'px;';
+            $widget_css .= 'padding-top: ' . $widget_padding_top_bottom . $widget_padding_unit . ' ; padding-bottom: ' . $widget_padding_top_bottom . $widget_padding_unit . ';';
         }
 
         $widget_text_font = $this->get_font_css_value('pp_widget_text');
