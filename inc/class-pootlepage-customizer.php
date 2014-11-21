@@ -23,10 +23,11 @@ class PootlePage_Customizer {
             $choices[$i] = $i . 'px';
         }
 
+
         $this->options = array(
 
-            'pp_paragraph_font' => array(
-                'id' => 'pp_paragraph_font',
+            'pp_paragraph' => array(
+                'id' => 'pp_paragraph',
                 'type' => 'font',
                 'label' => __('Paragraph', 'pootlepage'),
                 'section' => 'page_builder_font_section',
@@ -47,8 +48,8 @@ class PootlePage_Customizer {
                 'priority' => 10
             ),
 
-            'pp_address_font' => array(
-                'id' => 'pp_address_font',
+            'pp_address' => array(
+                'id' => 'pp_address',
                 'type' => 'font',
                 'label' => __('Address', 'pootlepage'),
                 'section' => 'page_builder_font_section',
@@ -64,13 +65,13 @@ class PootlePage_Customizer {
                     'font_size' => 18,
                     'font_size_unit' => 'px',
                     'font_color' => '#333333',
-                    'font_weight_style' => '300 italic'
+                    'font_weight_style' => '300italic'
                 ),
                 'priority' => 11
             ),
 
-            'pp_pre_font' => array(
-                'id' => 'pp_pre_font',
+            'pp_pre' => array(
+                'id' => 'pp_pre',
                 'type' => 'font',
                 'label' => __('Pre', 'pootlepage'),
                 'section' => 'page_builder_font_section',
@@ -91,8 +92,8 @@ class PootlePage_Customizer {
                 'priority' => 12
             ),
 
-            'pp_h1_font' => array(
-                'id' => 'pp_h1_font',
+            'pp_h1' => array(
+                'id' => 'pp_h1',
                 'type' => 'font',
                 'label' => __('H1', 'pootlepage'),
                 'section' => 'page_builder_font_section',
@@ -108,13 +109,13 @@ class PootlePage_Customizer {
                     'font_size' => 36,
                     'font_size_unit' => 'px',
                     'font_color' => '#333333',
-                    'font_weight_style' => 'normal'
+                    'font_weight_style' => '400'
                 ),
                 'priority' => 21
             ),
 
-            'pp_h2_font' => array(
-                'id' => 'pp_h2_font',
+            'pp_h2' => array(
+                'id' => 'pp_h2',
                 'type' => 'font',
                 'label' => __('H2', 'pootlepage'),
                 'section' => 'page_builder_font_section',
@@ -130,13 +131,13 @@ class PootlePage_Customizer {
                     'font_size' => 30,
                     'font_size_unit' => 'px',
                     'font_color' => '#333333',
-                    'font_weight_style' => 'normal'
+                    'font_weight_style' => '400'
                 ),
                 'priority' => 22
             ),
 
-            'pp_h3_font' => array(
-                'id' => 'pp_h3_font',
+            'pp_h3' => array(
+                'id' => 'pp_h3',
                 'type' => 'font',
                 'label' => __('H3', 'pootlepage'),
                 'section' => 'page_builder_font_section',
@@ -152,13 +153,13 @@ class PootlePage_Customizer {
                     'font_size' => 24,
                     'font_size_unit' => 'px',
                     'font_color' => '#333333',
-                    'font_weight_style' => 'normal'
+                    'font_weight_style' => '400'
                 ),
                 'priority' => 23
             ),
 
-            'pp_h4_font' => array(
-                'id' => 'pp_h4_font',
+            'pp_h4' => array(
+                'id' => 'pp_h4',
                 'type' => 'font',
                 'label' => __('H4', 'pootlepage'),
                 'section' => 'page_builder_font_section',
@@ -174,13 +175,13 @@ class PootlePage_Customizer {
                     'font_size' => 20,
                     'font_size_unit' => 'px',
                     'font_color' => '#333333',
-                    'font_weight_style' => 'normal'
+                    'font_weight_style' => '400'
                 ),
                 'priority' => 24
             ),
 
-            'pp_h5_font' => array(
-                'id' => 'pp_h5_font',
+            'pp_h5' => array(
+                'id' => 'pp_h5',
                 'type' => 'font',
                 'label' => __('H5', 'pootlepage'),
                 'section' => 'page_builder_font_section',
@@ -196,13 +197,13 @@ class PootlePage_Customizer {
                     'font_size' => 28,
                     'font_size_unit' => 'px',
                     'font_color' => '#333333',
-                    'font_weight_style' => 'normal'
+                    'font_weight_style' => '400'
                 ),
                 'priority' => 25
             ),
 
-            'pp_h6_font' => array(
-                'id' => 'pp_h6_font',
+            'pp_h6' => array(
+                'id' => 'pp_h6',
                 'type' => 'font',
                 'label' => __('H6', 'pootlepage'),
                 'section' => 'page_builder_font_section',
@@ -218,7 +219,7 @@ class PootlePage_Customizer {
                     'font_size' => 16,
                     'font_size_unit' => 'px',
                     'font_color' => '#333333',
-                    'font_weight_style' => 'normal'
+                    'font_weight_style' => '400'
                 ),
                 'priority' => 26
             ),
@@ -915,6 +916,8 @@ class PootlePage_Customizer {
 //            ' !important; color: ' . $widget_text_font['color'] . ' !important; ';
 //
 //
+
+
 //        $widget_title_font = $this->get_font_css_value('pp_widget_title');
 //
 //        $widget_title_css = '';
@@ -943,6 +946,76 @@ class PootlePage_Customizer {
 
         if ( $widget_css != '' ) {
             $output .= '.panel-grid-cell .widget {' . $widget_css . '}' . "\n";
+        }
+
+        $font_css = '';
+
+        $paragraph_font = $this->get_font_css_value('pp_paragraph');
+        $font_css .= '.panel-grid-cell .widget p { font-family: ' . $paragraph_font['font-family'] .
+            ' !important; font-size: ' . $paragraph_font['font-size'] .
+            ' !important; font-style: ' . $paragraph_font['font-style'] .
+            ' !important; font-weight: ' . $paragraph_font['font-weight'] .
+            ' !important; color: ' . $paragraph_font['color'] . " !important; }\n";
+
+        $address_font = $this->get_font_css_value('pp_address');
+        $font_css .= '.panel-grid-cell .widget address { font-family: ' . $address_font['font-family'] .
+            ' !important; font-size: ' . $address_font['font-size'] .
+            ' !important; font-style: ' . $address_font['font-style'] .
+            ' !important; font-weight: ' . $address_font['font-weight'] .
+            ' !important; color: ' . $address_font['color'] . " !important; }\n";
+
+        $pre_font = $this->get_font_css_value('pp_pre');
+        $font_css .= '.panel-grid-cell .widget pre { font-family: ' . $pre_font['font-family'] .
+            ' !important; font-size: ' . $pre_font['font-size'] .
+            ' !important; font-style: ' . $pre_font['font-style'] .
+            ' !important; font-weight: ' . $pre_font['font-weight'] .
+            ' !important; color: ' . $pre_font['color'] . " !important; }\n";
+
+        $h1_font = $this->get_font_css_value('pp_h1');
+        $font_css .= '.panel-grid-cell .widget h1 { font-family: ' . $h1_font['font-family'] .
+            ' !important; font-size: ' . $h1_font['font-size'] .
+            ' !important; font-style: ' . $h1_font['font-style'] .
+            ' !important; font-weight: ' . $h1_font['font-weight'] .
+            ' !important; color: ' . $h1_font['color'] . " !important; }\n";
+
+        $h2_font = $this->get_font_css_value('pp_h2');
+        $font_css .= '.panel-grid-cell .widget h2 { font-family: ' . $h2_font['font-family'] .
+            ' !important; font-size: ' . $h2_font['font-size'] .
+            ' !important; font-style: ' . $h2_font['font-style'] .
+            ' !important; font-weight: ' . $h2_font['font-weight'] .
+            ' !important; color: ' . $h2_font['color'] . " !important; }\n";
+
+        $h3_font = $this->get_font_css_value('pp_h3');
+        $font_css .= '.panel-grid-cell .widget h3 { font-family: ' . $h3_font['font-family'] .
+            ' !important; font-size: ' . $h3_font['font-size'] .
+            ' !important; font-style: ' . $h3_font['font-style'] .
+            ' !important; font-weight: ' . $h3_font['font-weight'] .
+            ' !important; color: ' . $h3_font['color'] . " !important; }\n";
+
+        $h4_font = $this->get_font_css_value('pp_h4');
+        $font_css .= '.panel-grid-cell .widget h4 { font-family: ' . $h4_font['font-family'] .
+            ' !important; font-size: ' . $h4_font['font-size'] .
+            ' !important; font-style: ' . $h4_font['font-style'] .
+            ' !important; font-weight: ' . $h4_font['font-weight'] .
+            ' !important; color: ' . $h4_font['color'] . " !important; }\n";
+
+        $h5_font = $this->get_font_css_value('pp_h5');
+        $font_css .= '.panel-grid-cell .widget h5 { font-family: ' . $h5_font['font-family'] .
+            ' !important; font-size: ' . $h5_font['font-size'] .
+            ' !important; font-style: ' . $h5_font['font-style'] .
+            ' !important; font-weight: ' . $h5_font['font-weight'] .
+            ' !important; color: ' . $h5_font['color'] . " !important; }\n";
+
+        $h6_font = $this->get_font_css_value('pp_h6');
+        $font_css .= '.panel-grid-cell .widget h6 { font-family: ' . $h6_font['font-family'] .
+            ' !important; font-size: ' . $h6_font['font-size'] .
+            ' !important; font-style: ' . $h6_font['font-style'] .
+            ' !important; font-weight: ' . $h6_font['font-weight'] .
+            ' !important; color: ' . $h6_font['color'] . " !important; }\n";
+
+
+        if ($font_css != '') {
+            $output .= $font_css . "\n";
         }
 
 //        if ( $widget_title_css != '' ) {
