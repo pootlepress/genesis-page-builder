@@ -24,11 +24,210 @@ class PootlePage_Customizer {
         }
 
         $this->options = array(
+
+            'pp_paragraph_font' => array(
+                'id' => 'pp_paragraph_font',
+                'type' => 'font',
+                'label' => __('Paragraph', 'pootlepage'),
+                'section' => 'page_builder_font_section',
+                'settings' => array(
+                    'font_id' => 'pp_paragraph_font_id',
+                    'font_size' => 'pp_paragraph_font_size',
+                    'font_size_unit' => 'pp_paragraph_font_size_unit',
+                    'font_color' => 'pp_paragraph_font_color',
+                    'font_weight_style' => 'pp_paragraph_font_weight_style'
+                ),
+                'defaults' => array(
+                    'font_id' => "Lato",
+                    'font_size' => 18,
+                    'font_size_unit' => 'px',
+                    'font_color' => '#333333',
+                    'font_weight_style' => '300'
+                ),
+                'priority' => 10
+            ),
+
+            'pp_address_font' => array(
+                'id' => 'pp_address_font',
+                'type' => 'font',
+                'label' => __('Address', 'pootlepage'),
+                'section' => 'page_builder_font_section',
+                'settings' => array(
+                    'font_id' => 'pp_address_font_id',
+                    'font_size' => 'pp_address_font_size',
+                    'font_size_unit' => 'pp_address_font_size_unit',
+                    'font_color' => 'pp_address_font_color',
+                    'font_weight_style' => 'pp_address_font_weight_style'
+                ),
+                'defaults' => array(
+                    'font_id' => "Lato",
+                    'font_size' => 18,
+                    'font_size_unit' => 'px',
+                    'font_color' => '#333333',
+                    'font_weight_style' => '300 italic'
+                ),
+                'priority' => 11
+            ),
+
+            'pp_pre_font' => array(
+                'id' => 'pp_pre_font',
+                'type' => 'font',
+                'label' => __('Pre', 'pootlepage'),
+                'section' => 'page_builder_font_section',
+                'settings' => array(
+                    'font_id' => 'pp_pre_font_id',
+                    'font_size' => 'pp_pre_font_size',
+                    'font_size_unit' => 'pp_pre_font_size_unit',
+                    'font_color' => 'pp_pre_font_color',
+                    'font_weight_style' => 'pp_pre_font_weight_style'
+                ),
+                'defaults' => array(
+                    'font_id' => "monospace",
+                    'font_size' => 1,
+                    'font_size_unit' => 'em',
+                    'font_color' => '#333333',
+                    'font_weight_style' => '300'
+                ),
+                'priority' => 12
+            ),
+
+            'pp_h1_font' => array(
+                'id' => 'pp_h1_font',
+                'type' => 'font',
+                'label' => __('H1', 'pootlepage'),
+                'section' => 'page_builder_font_section',
+                'settings' => array(
+                    'font_id' => 'pp_h1_font_id',
+                    'font_size' => 'pp_h1_font_size',
+                    'font_size_unit' => 'pp_h1_font_size_unit',
+                    'font_color' => 'pp_h1_font_color',
+                    'font_weight_style' => 'pp_h1_font_weight_style'
+                ),
+                'defaults' => array(
+                    'font_id' => "Lato",
+                    'font_size' => 36,
+                    'font_size_unit' => 'px',
+                    'font_color' => '#333333',
+                    'font_weight_style' => 'normal'
+                ),
+                'priority' => 21
+            ),
+
+            'pp_h2_font' => array(
+                'id' => 'pp_h2_font',
+                'type' => 'font',
+                'label' => __('H2', 'pootlepage'),
+                'section' => 'page_builder_font_section',
+                'settings' => array(
+                    'font_id' => 'pp_h2_font_id',
+                    'font_size' => 'pp_h2_font_size',
+                    'font_size_unit' => 'pp_h2_font_size_unit',
+                    'font_color' => 'pp_h2_font_color',
+                    'font_weight_style' => 'pp_h2_font_weight_style'
+                ),
+                'defaults' => array(
+                    'font_id' => "Lato",
+                    'font_size' => 30,
+                    'font_size_unit' => 'px',
+                    'font_color' => '#333333',
+                    'font_weight_style' => 'normal'
+                ),
+                'priority' => 22
+            ),
+
+            'pp_h3_font' => array(
+                'id' => 'pp_h3_font',
+                'type' => 'font',
+                'label' => __('H3', 'pootlepage'),
+                'section' => 'page_builder_font_section',
+                'settings' => array(
+                    'font_id' => 'pp_h3_font_id',
+                    'font_size' => 'pp_h3_font_size',
+                    'font_size_unit' => 'pp_h3_font_size_unit',
+                    'font_color' => 'pp_h3_font_color',
+                    'font_weight_style' => 'pp_h3_font_weight_style'
+                ),
+                'defaults' => array(
+                    'font_id' => "Lato",
+                    'font_size' => 24,
+                    'font_size_unit' => 'px',
+                    'font_color' => '#333333',
+                    'font_weight_style' => 'normal'
+                ),
+                'priority' => 23
+            ),
+
+            'pp_h4_font' => array(
+                'id' => 'pp_h4_font',
+                'type' => 'font',
+                'label' => __('H4', 'pootlepage'),
+                'section' => 'page_builder_font_section',
+                'settings' => array(
+                    'font_id' => 'pp_h4_font_id',
+                    'font_size' => 'pp_h4_font_size',
+                    'font_size_unit' => 'pp_h4_font_size_unit',
+                    'font_color' => 'pp_h4_font_color',
+                    'font_weight_style' => 'pp_h4_font_weight_style'
+                ),
+                'defaults' => array(
+                    'font_id' => "Lato",
+                    'font_size' => 20,
+                    'font_size_unit' => 'px',
+                    'font_color' => '#333333',
+                    'font_weight_style' => 'normal'
+                ),
+                'priority' => 24
+            ),
+
+            'pp_h5_font' => array(
+                'id' => 'pp_h5_font',
+                'type' => 'font',
+                'label' => __('H5', 'pootlepage'),
+                'section' => 'page_builder_font_section',
+                'settings' => array(
+                    'font_id' => 'pp_h5_font_id',
+                    'font_size' => 'pp_h5_font_size',
+                    'font_size_unit' => 'pp_h5_font_size_unit',
+                    'font_color' => 'pp_h5_font_color',
+                    'font_weight_style' => 'pp_h5_font_weight_style'
+                ),
+                'defaults' => array(
+                    'font_id' => "Lato",
+                    'font_size' => 28,
+                    'font_size_unit' => 'px',
+                    'font_color' => '#333333',
+                    'font_weight_style' => 'normal'
+                ),
+                'priority' => 25
+            ),
+
+            'pp_h6_font' => array(
+                'id' => 'pp_h6_font',
+                'type' => 'font',
+                'label' => __('H6', 'pootlepage'),
+                'section' => 'page_builder_font_section',
+                'settings' => array(
+                    'font_id' => 'pp_h6_font_id',
+                    'font_size' => 'pp_h6_font_size',
+                    'font_size_unit' => 'pp_h6_font_size_unit',
+                    'font_color' => 'pp_h6_font_color',
+                    'font_weight_style' => 'pp_h6_font_weight_style'
+                ),
+                'defaults' => array(
+                    'font_id' => "Lato",
+                    'font_size' => 16,
+                    'font_size_unit' => 'px',
+                    'font_color' => '#333333',
+                    'font_weight_style' => 'normal'
+                ),
+                'priority' => 26
+            ),
+
             'pp_widget_bg_color' => array(
                 'id' => 'pp_widget_bg_color',
                 'type' => 'color',
                 'label' => __('Widget Background Color', 'scratch'),
-                'section' => 'pootlepage_section',
+                'section' => 'page_builder_widget_section',
                 'default' => '',
                 'priority' => 10
             ),
@@ -37,7 +236,7 @@ class PootlePage_Customizer {
                 'id' => 'pp_widget_border',
                 'type' => 'border',
                 'label' => __('Widget Border', 'scratch'),
-                'section' => 'pootlepage_section',
+                'section' => 'page_builder_widget_section',
                 'settings' => array(
                     'border_width' => 'pp_widget_border_width',
                     'border_style' => 'pp_widget_border_style',
@@ -55,7 +254,7 @@ class PootlePage_Customizer {
                 'id' => 'pp_widget_padding',
                 'type' => 'padding',
                 'label' => 'Widget Padding',
-                'section' => 'pootlepage_section',
+                'section' => 'page_builder_widget_section',
                 'settings' => array(
                     'top_bottom_width' => 'pp_widget_padding_top_bottom',
                     'left_right_width' => 'pp_widget_padding_left_right',
@@ -69,73 +268,73 @@ class PootlePage_Customizer {
                 'priority' => 12
             ),
 
-            'pp_widget_title' => array(
-                'id' => 'pp_widget_title',
-                'type' => 'font',
-                'label' => __('Widget Title', 'scratch'),
-                'section' => 'pootlepage_section',
-                'settings' => array(
-                    'font_id' => 'pp_widget_title_font_id',
-                    'font_size' => 'pp_widget_title_font_size',
-                    'font_size_unit' => 'pp_widget_title_font_size_unit',
-                    'font_color' => 'pp_widget_title_font_color',
-                    'font_weight_style' => 'pp_widget_title_font_weight_style'
-                ),
-                'defaults' => array(
-                    'font_id' => "Helvetica",
-                    'font_size' => 14,
-                    'font_size_unit' => 'px',
-                    'font_color' => '#555555',
-                    'font_weight_style' => '700'
-                ),
-                'priority' => 13
-            ),
-
-            'pp_widget_title_bottom_border' => array(
-                'id' => 'pp_widget_title_bottom_border',
-                'type' => 'border',
-                'label' => __('Widget Title Bottom Border', 'scratch'),
-                'section' => 'pootlepage_section',
-                'settings' => array(
-                    'border_width' => 'pp_widget_title_bottom_border_width',
-                    'border_style' => 'pp_widget_title_bottom_border_style',
-                    'border_color' => 'pp_widget_title_bottom_border_color',
-                ),
-                'defaults' => array(
-                    'border_width' => 1,
-                    'border_style' => 'solid',
-                    'border_color' => '#e6e6e6',
-                ),
-                'priority' => 14
-            ),
-
-            'pp_widget_text' => array(
-                'id' => 'pp_widget_text',
-                'type' => 'font',
-                'label' => __('Widget Text', 'scratch'),
-                'section' => 'pootlepage_section',
-                'settings' => array(
-                    'font_id' => 'pp_widget_text_font_id',
-                    'font_size' => 'pp_widget_text_font_size',
-                    'font_size_unit' => 'pp_widget_text_font_size_unit',
-                    'font_color' => 'pp_widget_text_font_color',
-                    'font_weight_style' => 'pp_widget_text_font_weight_style'
-                ),
-                'defaults' => array(
-                    'font_id' => "Helvetica",
-                    'font_size' => 13,
-                    'font_size_unit' => 'px',
-                    'font_color' => '#555555',
-                    'font_weight_style' => '400'
-                ),
-                'priority' => 15
-            ),
+//            'pp_widget_title' => array(
+//                'id' => 'pp_widget_title',
+//                'type' => 'font',
+//                'label' => __('Widget Title', 'scratch'),
+//                'section' => 'pootlepage_section',
+//                'settings' => array(
+//                    'font_id' => 'pp_widget_title_font_id',
+//                    'font_size' => 'pp_widget_title_font_size',
+//                    'font_size_unit' => 'pp_widget_title_font_size_unit',
+//                    'font_color' => 'pp_widget_title_font_color',
+//                    'font_weight_style' => 'pp_widget_title_font_weight_style'
+//                ),
+//                'defaults' => array(
+//                    'font_id' => "Helvetica",
+//                    'font_size' => 14,
+//                    'font_size_unit' => 'px',
+//                    'font_color' => '#555555',
+//                    'font_weight_style' => '700'
+//                ),
+//                'priority' => 13
+//            ),
+//
+//            'pp_widget_title_bottom_border' => array(
+//                'id' => 'pp_widget_title_bottom_border',
+//                'type' => 'border',
+//                'label' => __('Widget Title Bottom Border', 'scratch'),
+//                'section' => 'pootlepage_section',
+//                'settings' => array(
+//                    'border_width' => 'pp_widget_title_bottom_border_width',
+//                    'border_style' => 'pp_widget_title_bottom_border_style',
+//                    'border_color' => 'pp_widget_title_bottom_border_color',
+//                ),
+//                'defaults' => array(
+//                    'border_width' => 1,
+//                    'border_style' => 'solid',
+//                    'border_color' => '#e6e6e6',
+//                ),
+//                'priority' => 14
+//            ),
+//
+//            'pp_widget_text' => array(
+//                'id' => 'pp_widget_text',
+//                'type' => 'font',
+//                'label' => __('Widget Text', 'scratch'),
+//                'section' => 'pootlepage_section',
+//                'settings' => array(
+//                    'font_id' => 'pp_widget_text_font_id',
+//                    'font_size' => 'pp_widget_text_font_size',
+//                    'font_size_unit' => 'pp_widget_text_font_size_unit',
+//                    'font_color' => 'pp_widget_text_font_color',
+//                    'font_weight_style' => 'pp_widget_text_font_weight_style'
+//                ),
+//                'defaults' => array(
+//                    'font_id' => "Helvetica",
+//                    'font_size' => 13,
+//                    'font_size_unit' => 'px',
+//                    'font_color' => '#555555',
+//                    'font_weight_style' => '400'
+//                ),
+//                'priority' => 15
+//            ),
 
             'pp_widget_border_radius' => array(
                 'id' => 'pp_widget_border_radius',
                 'type' => 'select',
                 'label' => __('Widget Rounded Corners', 'scratch'),
-                'section' => 'pootlepage_section',
+                'section' => 'page_builder_widget_section',
                 'default' => '0',
                 'choices' => $choices,
                 'priority' => 16
@@ -388,24 +587,24 @@ class PootlePage_Customizer {
             $widgetPaddingLeftRight = 40;
             $widgetPaddingUnit = '%';
 
-            $widgetTitleFont = array('size' => '16','unit' => 'px', 'face' => 'Lato, sans-serif','style' => 'bold','color' => '#333333');
-            $widgetTitleFontFamily = $widgetTitleFont['face'];
-            $widgetTitleFontSize = $widgetTitleFont['size'];
-            $widgetTitleFontSizeUnit = $widgetTitleFont['unit'];
-            $widgetTitleFontStyle = $this->convert_canvas_font_style_to_pp($widgetTitleFont['style']);
-            $widgetTitleFontColor = $widgetTitleFont['color'];
-
-            $widgetTitleBottomBorder = array('width' => '0','style' => 'solid','color' => '#e6e6e6');
-            $widgetTitleBottomBorderWidth = $widgetTitleBottomBorder['width'];
-            $widgetTitleBottomBorderStyle = $widgetTitleBottomBorder['style'];
-            $widgetTitleBottomBorderColor = $widgetTitleBottomBorder['color'];
-
-            $widgetTextFont = array('size' => '16','unit' => 'px', 'face' => '"Helvetica Neue", Helvetica, Arial, sans-serif','style' => '300','color' => '#999999');
-            $widgetTextFontFamily = $widgetTextFont['face'];
-            $widgetTextFontSize = $widgetTextFont['size'];
-            $widgetTextFontSizeUnit = $widgetTextFont['unit'];
-            $widgetTextFontStyle = $this->convert_canvas_font_style_to_pp($widgetTextFont['style']);
-            $widgetTextFontColor = $widgetTextFont['color'];
+//            $widgetTitleFont = array('size' => '16','unit' => 'px', 'face' => 'Lato, sans-serif','style' => 'bold','color' => '#333333');
+//            $widgetTitleFontFamily = $widgetTitleFont['face'];
+//            $widgetTitleFontSize = $widgetTitleFont['size'];
+//            $widgetTitleFontSizeUnit = $widgetTitleFont['unit'];
+//            $widgetTitleFontStyle = $this->convert_canvas_font_style_to_pp($widgetTitleFont['style']);
+//            $widgetTitleFontColor = $widgetTitleFont['color'];
+//
+//            $widgetTitleBottomBorder = array('width' => '0','style' => 'solid','color' => '#e6e6e6');
+//            $widgetTitleBottomBorderWidth = $widgetTitleBottomBorder['width'];
+//            $widgetTitleBottomBorderStyle = $widgetTitleBottomBorder['style'];
+//            $widgetTitleBottomBorderColor = $widgetTitleBottomBorder['color'];
+//
+//            $widgetTextFont = array('size' => '16','unit' => 'px', 'face' => '"Helvetica Neue", Helvetica, Arial, sans-serif','style' => '300','color' => '#999999');
+//            $widgetTextFontFamily = $widgetTextFont['face'];
+//            $widgetTextFontSize = $widgetTextFont['size'];
+//            $widgetTextFontSizeUnit = $widgetTextFont['unit'];
+//            $widgetTextFontStyle = $this->convert_canvas_font_style_to_pp($widgetTextFont['style']);
+//            $widgetTextFontColor = $widgetTextFont['color'];
 
             $widgetBorderRadius = '0';
 
@@ -420,25 +619,25 @@ class PootlePage_Customizer {
                 'left_right_width' => $widgetPaddingLeftRight,
                 'unit' => $widgetPaddingUnit
             );
-            $this->options['pp_widget_title']['defaults'] = array(
-                'font_id' => $widgetTitleFontFamily,
-                'font_size' => $widgetTitleFontSize,
-                'font_size_unit' => $widgetTitleFontSizeUnit,
-                'font_color' => $widgetTitleFontColor,
-                'font_weight_style' => $widgetTitleFontStyle
-            );
-            $this->options['pp_widget_title_bottom_border']['defaults'] = array(
-                'border_width' => $widgetTitleBottomBorderWidth,
-                'border_style' => $widgetTitleBottomBorderStyle,
-                'border_color' => $widgetTitleBottomBorderColor
-            );
-            $this->options['pp_widget_text']['defaults'] = array(
-                'font_id' => $widgetTextFontFamily,
-                'font_size' => $widgetTextFontSize,
-                'font_size_unit' => $widgetTextFontSizeUnit,
-                'font_color' => $widgetTextFontColor,
-                'font_weight_style' => $widgetTextFontStyle
-            );
+//            $this->options['pp_widget_title']['defaults'] = array(
+//                'font_id' => $widgetTitleFontFamily,
+//                'font_size' => $widgetTitleFontSize,
+//                'font_size_unit' => $widgetTitleFontSizeUnit,
+//                'font_color' => $widgetTitleFontColor,
+//                'font_weight_style' => $widgetTitleFontStyle
+//            );
+//            $this->options['pp_widget_title_bottom_border']['defaults'] = array(
+//                'border_width' => $widgetTitleBottomBorderWidth,
+//                'border_style' => $widgetTitleBottomBorderStyle,
+//                'border_color' => $widgetTitleBottomBorderColor
+//            );
+//            $this->options['pp_widget_text']['defaults'] = array(
+//                'font_id' => $widgetTextFontFamily,
+//                'font_size' => $widgetTextFontSize,
+//                'font_size_unit' => $widgetTextFontSizeUnit,
+//                'font_color' => $widgetTextFontColor,
+//                'font_weight_style' => $widgetTextFontStyle
+//            );
             $this->options['pp_widget_border_radius']['default'] = $widgetBorderRadius;
         }
     }
@@ -538,9 +737,21 @@ class PootlePage_Customizer {
         require_once dirname(__FILE__) . '/class-pootlepage-padding-control.php';
 
         // sections
-        $customizeManager->add_section('pootlepage_section', array(
-            'title' => 'Genesis Widgets',
-            'priority' => 10
+        $customizeManager->add_panel( 'page_builder', array(
+            'title'       => __( 'Page Builder' ),
+            'priority'    => 10,
+        ));
+
+        $customizeManager->add_section('page_builder_font_section', array(
+            'title' => 'Fonts',
+            'priority' => 10,
+            'panel' => 'page_builder'
+        ));
+
+        $customizeManager->add_section('page_builder_widget_section', array(
+            'title' => 'Widgets',
+            'priority' => 11,
+            'panel' => 'page_builder'
         ));
 
         foreach ($this->options as $k => $option) {
@@ -695,35 +906,35 @@ class PootlePage_Customizer {
             $widget_css .= 'padding-top: ' . $widget_padding_top_bottom . $widget_padding_unit . ' ; padding-bottom: ' . $widget_padding_top_bottom . $widget_padding_unit . ';';
         }
 
-        $widget_text_font = $this->get_font_css_value('pp_widget_text');
+//        $widget_text_font = $this->get_font_css_value('pp_widget_text');
+//
+//        $widget_css .= 'font-family: ' . $widget_text_font['font-family'] .
+//            ' !important; font-size: ' . $widget_text_font['font-size'] .
+//            ' !important; font-style: ' . $widget_text_font['font-style'] .
+//            ' !important; font-weight: ' . $widget_text_font['font-weight'] .
+//            ' !important; color: ' . $widget_text_font['color'] . ' !important; ';
+//
+//
+//        $widget_title_font = $this->get_font_css_value('pp_widget_title');
+//
+//        $widget_title_css = '';
+//        $widget_title_css .= 'font-family: ' . $widget_title_font['font-family'] .
+//            '; font-size: ' . $widget_title_font['font-size'] .
+//            '; font-style: ' . $widget_title_font['font-style'] .
+//            '; font-weight: ' . $widget_title_font['font-weight'] .
+//            '; color: ' . $widget_title_font['color'] . '; ';
 
-        $widget_css .= 'font-family: ' . $widget_text_font['font-family'] .
-            ' !important; font-size: ' . $widget_text_font['font-size'] .
-            ' !important; font-style: ' . $widget_text_font['font-style'] .
-            ' !important; font-weight: ' . $widget_text_font['font-weight'] .
-            ' !important; color: ' . $widget_text_font['color'] . ' !important; ';
 
-
-        $widget_title_font = $this->get_font_css_value('pp_widget_title');
-
-        $widget_title_css = '';
-        $widget_title_css .= 'font-family: ' . $widget_title_font['font-family'] .
-            '; font-size: ' . $widget_title_font['font-size'] .
-            '; font-style: ' . $widget_title_font['font-style'] .
-            '; font-weight: ' . $widget_title_font['font-weight'] .
-            '; color: ' . $widget_title_font['color'] . '; ';
-
-
-        $widget_title_border_width = get_option('pp_widget_title_bottom_border_width', 1);
-        $widget_title_border_style = get_option('pp_widget_title_bottom_border_style', 'solid');
-        $widget_title_border_color = get_option('pp_widget_title_bottom_border_color', '#e6e6e6');
-
-        if ( $widget_title_border_width > 0 ) {
-            $widget_title_css .= 'border-bottom:' . $widget_title_border_width . 'px ' . $widget_title_border_style . ' ' . $widget_title_border_color . ';';
-        }
-        if ( isset( $widget_title_border_width ) AND $widget_title_border_width == 0 ) {
-            $widget_title_css .= 'margin-bottom:0;';
-        }
+//        $widget_title_border_width = get_option('pp_widget_title_bottom_border_width', 1);
+//        $widget_title_border_style = get_option('pp_widget_title_bottom_border_style', 'solid');
+//        $widget_title_border_color = get_option('pp_widget_title_bottom_border_color', '#e6e6e6');
+//
+//        if ( $widget_title_border_width > 0 ) {
+//            $widget_title_css .= 'border-bottom:' . $widget_title_border_width . 'px ' . $widget_title_border_style . ' ' . $widget_title_border_color . ';';
+//        }
+//        if ( isset( $widget_title_border_width ) AND $widget_title_border_width == 0 ) {
+//            $widget_title_css .= 'margin-bottom:0;';
+//        }
 
         $widget_border_radius = get_option('pp_widget_border_radius', 0);
         if ( $widget_border_radius > 0) {
@@ -734,9 +945,9 @@ class PootlePage_Customizer {
             $output .= '.panel-grid-cell .widget {' . $widget_css . '}' . "\n";
         }
 
-        if ( $widget_title_css != '' ) {
-            $output .= '.panel-grid-cell .widget > .widget-title {' . $widget_title_css . '}' . "\n";
-        }
+//        if ( $widget_title_css != '' ) {
+//            $output .= '.panel-grid-cell .widget > .widget-title {' . $widget_title_css . '}' . "\n";
+//        }
 
         ?>
         <style>

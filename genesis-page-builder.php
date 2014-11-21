@@ -291,10 +291,11 @@ function siteorigin_panels_admin_enqueue_scripts($prefix) {
 			}
 		}
 
-		// Add in the forms
-		if( !empty( $panels_data['widgets'] ) ) {
-			wp_localize_script( 'so-panels-admin', 'panelsData', $panels_data );
-		}
+        // Add in the forms
+        if(count($panels_data) > 0) {
+            // load all data even if no widget inside, so row styling will be loaded
+            wp_localize_script( 'so-panels-admin', 'panelsData', $panels_data );
+        }
 
 		// Set up the row styles
 		wp_localize_script( 'so-panels-admin', 'panelsStyleFields', siteorigin_panels_style_get_fields() );
@@ -589,11 +590,11 @@ function siteorigin_panels_generate_css($post_id, $panels_data){
 		if($gi != count($panels_data['grids'])-1){
 			$css[1920]['margin-bottom: '.$panels_margin_bottom.'px'][] = '#pg-' . $post_id . '-' . $gi;
 		}
-
-		if ( $cell_count > 1 ) {
-			if ( empty( $css[1920]['float:left'] ) ) $css[1920]['float:left'] = array();
-			$css[1920]['float:left'][] = '#pg-' . $post_id . '-' . $gi . ' .panel-grid-cell';
-		}
+//
+//		if ( $cell_count > 1 ) {
+//			if ( empty( $css[1920]['float:left'] ) ) $css[1920]['float:left'] = array();
+//			$css[1920]['float:left'][] = '#pg-' . $post_id . '-' . $gi . ' .panel-grid-cell';
+//		}
 
 		if ( $settings['responsive'] ) {
 			// Mobile Responsive
@@ -855,7 +856,8 @@ function siteorigin_panels_render( $post_id = false, $enqueue_css = true, $panel
 		}
 
 		// Themes can add their own attributes to the style wrapper
-		$style_attributes = apply_filters('siteorigin_panels_row_style_attributes', $style_attributes, !empty($panels_data['grids'][$gi]['style']) ? $panels_data['grids'][$gi]['style'] : array());
+        $styleArray = !empty($panels_data['grids'][$gi]['style']) ? $panels_data['grids'][$gi]['style'] : array();
+		$style_attributes = apply_filters('siteorigin_panels_row_style_attributes', $style_attributes, $styleArray);
 		if( !empty($style_attributes) ) {
 			if(empty($style_attributes['class'])) $style_attributes['class'] = array();
 			$style_attributes['class'][] = 'panel-row-style';
@@ -872,6 +874,14 @@ function siteorigin_panels_render( $post_id = false, $enqueue_css = true, $panel
 			}
 			echo '>';
 		}
+
+        if (isset($styleArray['background'])) {
+            echo "<style>\n" .
+                '#pg-' . $post_id . '-' . $gi . " > .panel-row-style:before {\n" .
+                    "\tbackground-color: " . $styleArray['background'] . ";\n" .
+                "}\n" .
+                "</style>\n";
+        }
 
         echo "<div class='panel-grid-cell-container'>";
 
@@ -1104,9 +1114,9 @@ function pootlepage_page_css() {
             $css .= "main.content > article { padding-left: 0; padding-right: 0; }\n";
 
             if ($keepContentAtSiteWidth) {
-                $css .= ".panel-grid-cell-container { margin-left: auto; margin-right: auto; max-width: 1200px; }\n";
-                $css .= "@media only screen and (max-width: 1200px) { .panel-grid-cell-container { max-width: 960px; } }\n";
-                $css .= "@media only screen and (max-width: 960px) { .panel-grid-cell-container { max-width: 800px; } }\n";
+                $css .= ".panel-grid-cell-container, .entry-title { margin-left: auto; margin-right: auto; max-width: 1200px; }\n";
+                $css .= "@media only screen and (max-width: 1200px) { .panel-grid-cell-container, .entry-title { max-width: 960px; } }\n";
+                $css .= "@media only screen and (max-width: 960px) { .panel-grid-cell-container, .entry-title { max-width: 800px; } }\n";
             }
         } else if ($parentTheme == 'make') {
 

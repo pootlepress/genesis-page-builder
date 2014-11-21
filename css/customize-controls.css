@@ -1,11 +1,11 @@
-#customize-controls #accordion-section-pootlepage_section .customize-control
+#customize-controls #accordion-panel-page_builder .customize-control
 {
     padding-top: 10px;
     border-top: 1px dotted #a0a0a0;
     margin-top: 15px;
 }
 
-#customize-controls #accordion-section-pootlepage_section .customize-control:first-child
+#customize-controls #accordion-panel-page_builder .customize-control:first-child
 {
     padding: 0;
     border-top: none;
@@ -54,7 +54,12 @@
 
 #customize-controls .customize-control-padding input[type=number],
 #customize-controls .customize-control-border input[type=number],
-#customize-controls .customize-control-font input[type=number]
+#customize-controls .customize-control-font select
 {
     width: 100px;
+}
+
+#customize-controls .customize-control-font input[type=number]
+{
+    width: 80px;
 }
