@@ -75,6 +75,16 @@ function pootlepage_page_settings_fields() {
         )
     );
 
+    $fields['background_image_size'] = array(
+        'name' => __('Background Size', 'pootlepage'),
+        'type' => 'select',
+        'options' => array(
+            '' => 'default',
+            '100% width' => '100% width',
+            'Cover' => 'Cover'
+        )
+    );
+
     // remove this option from Genesis PB
 //    $fields['remove_sidebar'] = array(
 //        'name' => __('Remove Sidebar', 'pootlepage'),

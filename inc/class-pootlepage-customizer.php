@@ -584,8 +584,8 @@ class PootlePage_Customizer {
 
             $widgetBgColor = '#ffffff';
             $widgetBorder = array('width' => 0, 'style' => 'solid', 'color' => '#dbdbdb');
-            $widgetPaddingTopBottom = 40;
-            $widgetPaddingLeftRight = 40;
+            $widgetPaddingTopBottom = 5;
+            $widgetPaddingLeftRight = 5;
             $widgetPaddingUnit = '%';
 
 //            $widgetTitleFont = array('size' => '16','unit' => 'px', 'face' => 'Lato, sans-serif','style' => 'bold','color' => '#333333');

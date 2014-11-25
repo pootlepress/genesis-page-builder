@@ -1016,6 +1016,8 @@ function pootlepage_page_css() {
     $backgroundImageRepeat = isset($pageSettings['background_image_repeat']) ? $pageSettings['background_image_repeat'] : false;
     $backgroundImagePosition = isset($pageSettings['background_image_position']) ? $pageSettings['background_image_position'] : false;
     $backgroundImageAttachment = isset($pageSettings['background_image_attachment']) ? $pageSettings['background_image_attachment'] : false;
+	$backgroundImageSize = isset($pageSettings['background_image_size']) ? $pageSettings['background_image_size'] : false;
+
     // remove this option from Genesis PB
     //$removeSideBar = isset($pageSettings['remove_sidebar']) ? $pageSettings['remove_sidebar'] : false;
     $fullWidth = isset($pageSettings['full_width']) ? $pageSettings['full_width'] : false;
@@ -1055,6 +1057,14 @@ function pootlepage_page_css() {
     if ($backgroundImageAttachment) {
         $css .= "\t" . 'background-attachment: ' . $backgroundImageAttachment . " !important;\n";
     }
+	if ($backgroundImageSize == '100% width') {
+		$css .= "\tbackground-size: 100% auto !important;\n";
+	} else if ($backgroundImageSize == 'Cover') {
+		$css .= "\tbackground-size: cover !important;\n";
+	} else if ($backgroundImageSize == '') {
+		$css .= "\tbackground-size: cover !important;\n";
+	}
+
     $css .= "}\n";
 
     // remove this option from Genesis Page Builder;
